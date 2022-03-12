@@ -15,6 +15,7 @@ const HomeScreen = () => {
         data={demoData}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
+        maximumZoomScale={4}
       />
     </View>
   );

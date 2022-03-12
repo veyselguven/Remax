@@ -13,6 +13,10 @@ const demoHomeSliders_1 = [
     id: "home_slider_3",
     image: Images.HOME_3,
   },
+  {
+    id: "home_slider_4",
+    image: Images.HOME_3,
+  },
 ];
 
 const demoHomeSliders_2 = [
@@ -42,6 +46,18 @@ const demoData = [
     images: demoHomeSliders_2,
     name: "Maslak 43 Tower",
     address: "Maslak 43 Mahallesi, Levent, İstanbul",
+  },
+  {
+    id: "flat_list_home_3",
+    images: demoHomeSliders_1,
+    name: "Maslak 44 Tower",
+    address: "Maslak Mahallesi, Levent, İstanbul",
+  },
+  {
+    id: "flat_list_home_4",
+    images: demoHomeSliders_2,
+    name: "Maslak 45 Tower",
+    address: "Maslak 45 Mahallesi, Levent, İstanbul",
   },
 ];
 
