@@ -7,33 +7,22 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  TouchableOpacity,
 } from "react-native";
 import colors from "../../assets/colors";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 const { width: WINDOW_WIDTH, height: WINDOW_HEIGHT } = Dimensions.get("window");
-//console.log(Dimensions.get("window"));
 
-const Slider = (props) => {
-  const { item } = props;
-
-  // const _handleScroll = ({ nativeEvent }) => {
-  //   console.log(nativeEvent);
-  //   const { width: oneSliderItemWidth } = nativeEvent.layoutMeasurement;
-  //   const { x: sliderOffset } = nativeEvent.contentOffset;
-  //   const index = Math.floor(sliderOffset / oneSliderItemWidth);
-  // };
-
+const Slider = ({ item, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
         <View style={styles.topContainer}>
           <ScrollView
             horizontal={true}
-            pagingEnabled={true} //Pageler arasi gecis yapiyor
+            pagingEnabled={true} //it enables to pass betwween page
             decelerationRate={"fast"}
-            /* showsHorizontalScrollIndicator={false} */
-            /* onMomentumScrollEnd={_handleScroll} */
             maximumZoomScale={4}
           >
             {item.images.map((item) => {
@@ -51,7 +40,15 @@ const Slider = (props) => {
         <View style={styles.bottomContainer}>
           <View style={styles.bottomContainerTop}>
             <Text style={styles.nameText}>{item.name}</Text>
-            <Icon name={"arrow-right"} size={20} style={styles.icon} />
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("HomeDetail", {
+                  id: item.id,
+                })
+              }
+            >
+              <Icon name={"arrow-right"} size={20} style={styles.icon} />
+            </TouchableOpacity>
           </View>
           <View style={styles.bottomContainerBottom}>
             <Icon name={"map-marker-alt"} size={20} style={styles.icon} />
@@ -101,7 +98,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     marginTop: 10,
-    paddingHorizontal: 10, //soldan ve sagdan deger vererek padding verio
+    paddingHorizontal: 10, //soldan ve sagdan deger vererek padding veriyor
   },
   bottomContainerTop: {
     height: "50%",
